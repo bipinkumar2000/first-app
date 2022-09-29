@@ -1,0 +1,25 @@
+.employee-list{    
+    display:flex;
+    justify-content: space-between;
+    padding:1rem;
+    margin:1rem 0;
+    list-style:none;
+    color:rgb(124, 0, 124);
+    background:white;
+    border-radius:4px;
+    border:1px solid;
+    border-color:rgb(6, 109, 109);
+}
+
+.employee-list .employee-name{
+    margin:0 1rem;
+    font-weight: bold;
+    color:rgb(3, 46, 46); 
+}
+
+.employee-list .employee-salary{
+    margin:0 1rem;
+    font-size:16px;    
+    color:rgb(243, 0, 0);
+}
+

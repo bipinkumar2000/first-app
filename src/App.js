@@ -1,23 +1,73 @@
-import logo from './logo.svg';
+import {useState} from 'react';
+
+import Card from './UI/Card';
+import Title from './UI/Title';
+import EmployeeItems from './Components/EmployeeItems';
+import NewEmployee from './Components/NewEmployee/NewEmployee';
+
 import './App.css';
 
+
+
+
 function App() {
+
+  const [employees,setEmployees] = useState([
+    {
+      id:'E1101',
+      name:'Kiran',
+      salary:500000
+    },
+    {
+      id:'E1102',
+      name:'Jen',
+      salary:100000
+    },
+    {
+      id:'E1103',
+      name:'Alfin',
+      salary:400000
+    },
+    {
+      id:'E1104',
+      name:'Bipin',
+      salary:250000
+    }
+
+  ]);
+
+  const addEmployeeHandler = (employee) =>{
+    setEmployees(prevEmployees=>{
+      const updatedEmployees = [...prevEmployees];
+      updatedEmployees.unshift(employee);
+      return updatedEmployees;
+    })
+  }
+
+  const EmployeeDeleteHandler = (employeeId) => {
+    setEmployees(
+      prevEmployees=>{
+        const updatedEmployees = prevEmployees.filter(item=>
+          item.id!==employeeId
+        );
+        return updatedEmployees;
+      }
+    )
+  }
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Title color='violet'>
+        WelCome To Employee Data
+      </Title>
+      <NewEmployee onSaveEmployeeData={addEmployeeHandler}/>
+     <Card>
+      <EmployeeItems items={employees} onClickDelete={EmployeeDeleteHandler}></EmployeeItems>
+     </Card>
+
+      
     </div>
   );
 }

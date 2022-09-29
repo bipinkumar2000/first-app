@@ -1,0 +1,23 @@
+.form-control{
+    justify-content: space-between;
+    color:black;    
+    background:white;
+    text-align:center;
+    font-size: large;
+    border-radius:3px;
+}
+.form-control input{
+    margin:2rem;
+    height:1.8rem;
+    width:12rem;
+    justify-content: center;
+}
+.form-control label{
+   font-weight: 5px;
+   color:rgb(223, 8, 223);
+
+}
+.actions{
+    padding:1rem;
+    margin:1rem;
+}
