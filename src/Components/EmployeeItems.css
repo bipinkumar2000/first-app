@@ -1,3 +1,16 @@
 .employye-items{
     padding:1rem;
 }
+.empty-message{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    padding:1rem;
+    margin:1rem 0;
+    list-style:none;
+    color:rgb(124, 0, 124);
+    background:white;
+    border-radius:4px;
+    border:1px solid;
+    border-color:rgb(6, 109, 109);
+}

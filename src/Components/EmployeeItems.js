@@ -14,6 +14,8 @@ const EmployeeItems = (props)=>{
            id={item.id}
            name={item.name}   
            salary={item.salary}/>) }
+
+           {props.items.length===0?<li className='empty-message'>No Content</li>:null}
         </ul>
         
     );
