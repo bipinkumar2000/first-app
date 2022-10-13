@@ -10,7 +10,7 @@ import './NewEmployeeInput.css'
 const NewEmployeeInput = (props) =>{
 
     const [errorStatus,setErrorStatus] = useState(false);
-
+    const [errorMessage,setErrorMessage] = useState('');
     const [input,setInput] = useState({
         name:'',
         salary:''
@@ -18,17 +18,26 @@ const NewEmployeeInput = (props) =>{
 
     const formSubmitHandler = (event) =>{
         event.preventDefault();
-        if(input.name.length>0 && input.salary.length>0){         
-            const employeeData = {...input};
-            setInput({
-                ...input,
-                name:'',
-                salary:'',
-            });
-            props.onFormSubmitHandler(employeeData);
+        if(input.name.length<=0 && input.salary.length<=0){
+            setErrorMessage('Name and Salary is required!');         
+            setErrorStatus(true);
         }
-        else{
-           setErrorStatus(true);
+        else if(input.name.length<=0){
+            setErrorMessage('Name is required!');
+            setErrorStatus(true);
+        }
+        else if(input.salary.length<=0){
+            setErrorMessage('salary is required!');
+            setErrorStatus(true);
+        }
+        else{          
+           const employeeData = {...input};
+           setInput({
+               ...input,
+               name:'',
+               salary:'',
+           });
+           props.onFormSubmitHandler(employeeData);
         }
     }
     const nameChangeHandler = (event ) =>{
@@ -44,18 +53,21 @@ const NewEmployeeInput = (props) =>{
             salary:event.target.value,
         });
     }
-
+    
+    const errorModalCloseHandler = () =>{
+        setErrorStatus(false);
+    }
 
     return(
        <div className='form-container'>
-        <ErrorModal className='error' message='Name and Salary is Required'></ErrorModal>
-            {errorStatus ? <ErrorModal className='error' message='Name and Salary is Required'></ErrorModal>:null}
+        {/* <ErrorModal className='error' message='Name and Salary is Required'></ErrorModal> */}
+            {errorStatus ? <ErrorModal className='error' onClose={errorModalCloseHandler} message={errorMessage}></ErrorModal>:null}
             <Card>
                 <form onSubmit={formSubmitHandler} className='form-control'>
                     <label>
                         Name
                     </label>
-                    <input type='text' onChange={nameChangeHandler} value={input.name} onInvalid={e=>e.target.setCustomValidity('Name is Mandatory')} required/>
+                    <input type='text' onChange={nameChangeHandler} value={input.name} />
                     <label>
                         Salary
                     </label>
