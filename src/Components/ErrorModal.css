@@ -16,7 +16,6 @@
     align-items: center;
     color:red;
     font-size:15px;
-
     background: rgba(66, 44, 44, 0.4);
 }
 .error-panel{
@@ -44,4 +43,18 @@
     color:rgb(145, 0, 17);
     cursor:pointer;
     
+}
+
+@media(max-width:750px){
+    .error-modal{  
+      margin:0;
+      padding:0;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .error-panel{
+        width:18em;
+        height:1.5rem;
+    }
 }

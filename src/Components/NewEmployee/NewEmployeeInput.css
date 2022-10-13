@@ -34,3 +34,26 @@
 .error{
     color:red;
 }
+@media(max-width:750PX){
+    .form-control input{
+        margin:0.5rem;
+        height:1.8rem;
+        width:8rem;
+        justify-content: center;
+    }
+    .form-control{
+        width:100%;
+        height:100%;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        color:rgb(10, 8, 8);    
+        background:transparent;
+        text-align:center;
+        font-size: large;
+        border-radius:3px;
+        border:2px solid;
+        border-color:white;
+    }
+}

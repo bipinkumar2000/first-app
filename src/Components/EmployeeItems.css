@@ -14,3 +14,9 @@
     border:1px solid;
     border-color:rgb(6, 109, 109);
 }
+@media(max-width:750px){
+    .employye-items{
+        padding:1rem;
+        width:20rem;
+    }
+}

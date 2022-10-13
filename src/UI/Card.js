@@ -1,13 +1,13 @@
-import styled from 'styled-components';
+import './Card.css';
 
-const Card = styled.div`
-margin:0 25%;
-padding:1rem;
-border-radius:3px;
-text-align:center;
-background:transparent;
-width:auto; 
-` ;
+const Card = (props) => {
+
+    return (
+    <div className='card'>
+        {props.children}
+    </div>
+    );
+}
 
 
 export default Card;
